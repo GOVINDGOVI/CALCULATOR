@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculator</title>
+</head>
+<body>
+	<h2>Calculator</h2>
+	<input type="number" id="number1">
+	<select id="operate">
+		<option value="add">+</option>
+		<option value="sub">-</option>
+		<option value="mul">*</option>
+		<option value="div">/</option>
+	</select>
+	<input type="number" id="number2">
+	<button onclick="calculate()">=</button>
+	<p id="result"></p>
+	<script>
+		function add(a,b){
+				return a+b;
+            }
+			function sub(a,b){
+				return a-b;
+
+			}
+			function mul(a,b){
+				return a * b;
+            }
+            function div(a,b){
+				return b !== 0 ? a/b:"error";
+			}
+
+
+		function calculate() {
+			let num1=parseFloat(document.getElementById('number1').value);
+			let num2=parseFloat(document.getElementById('number2').value);
+			let op= document.getElementById('operate').value;
+			let res;
+
+
+			if(op=="add"){
+				res=add(num1,num2);
+			}
+			else if(op=="sub"){
+				res=sub(num1,num2);
+			}
+			else if(op=="mul"){
+				res=mul(num1,num2);
+			}
+			else if(op=="div"){
+				res=div(num1,num2);
+			}
+
+            document.getElementById("result").innerText="Result:" + res;
+
+		}
+	</script>
+
+</body>
+</html>
